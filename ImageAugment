@@ -4,6 +4,10 @@ echo "Please enter the image directory:"
 read imageDir
 echo "Please enter the number of copies:"
 read numCopies
+echo "Please enter the average x dimensions of the images (does not have to be an exact value)"
+read xDim
+echo "Please enter the average y dimensions of the images (does not have to be an exact value)"
+read yDim
 
 git clone https://github.com/codebox/image_augmentor.git
 pip install scikit-image
@@ -50,10 +54,12 @@ getRandomTransform()
 			;;
 
 		6 )
-			randomX=$(echo "scale=0; $[RANDOM%30]+1"|bc)
-			randomY=$(echo "scale=0; $[RANDOM%30]+1"|bc)
-			randomZ=$(echo "scale=0; $[RANDOM%30]+42"|bc)
-			randomH=$(echo "scale=0; $[RANDOM%30]+42"|bc)
+			xSize=$(echo "scale=0; $xDim/2"|bc)
+			ySize=$(echo "scale=0; $yDim/2"|bc)
+			randomX=$(echo "scale=0; $[RANDOM%${xSize}]"|bc)
+			randomY=$(echo "scale=0; $[RANDOM%{ySize}"|bc)
+			randomZ=$(echo "scale=0; $[RANDOM%${xSize}]+xSize-1"|bc)
+			randomH=$(echo "scale=0; $[RANDOM%${ySize}]+ySize-1"|bc)
 			echo "zoom_${randomX}_${randomY}_${randomZ}_${randomH}"
 			;;
 
