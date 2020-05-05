@@ -13,7 +13,11 @@ download the ImageAugment file.
 
 4. enter the amount of copies per image desired.
 
-5. wait for the process to complete.
+5. enter the x dimensions of the images +- 10%
+
+6. enter the y dimensions of the images +- 10%
+
+7. wait for the process to complete.
 
 
 
