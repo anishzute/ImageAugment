@@ -4,9 +4,9 @@ echo "Please enter the image directory:"
 read imageDir
 echo "Please enter the number of copies:"
 read numCopies
-echo "Please enter the average x dimensions of the images (does not have to be an exact value)"
+echo "Please enter the average x dimensions of the images (+- 10%)"
 read xDim
-echo "Please enter the average y dimensions of the images (does not have to be an exact value)"
+echo "Please enter the average y dimensions of the images (+-10%)"
 read yDim
 
 git clone https://github.com/codebox/image_augmentor.git
@@ -56,10 +56,12 @@ getRandomTransform()
 		6 )
 			xSize=$(echo "scale=0; $xDim/2"|bc)
 			ySize=$(echo "scale=0; $yDim/2"|bc)
+			xError=$(echo "scale=0; $xDim/2/10"|bc)
+			yError=$(echo "scale=0; $yDim/2/10"|bc)
 			randomX=$(echo "scale=0; $[RANDOM%${xSize}]"|bc)
 			randomY=$(echo "scale=0; $[RANDOM%${ySize}]"|bc)
-			randomZ=$(echo "scale=0; $[RANDOM%${xSize}]+$xSize-1"|bc)
-			randomH=$(echo "scale=0; $[RANDOM%${ySize}]+$ySize-1"|bc)
+			randomZ=$(echo "scale=0; $[RANDOM%${xSize}]+${xSize}-${xError}"|bc)
+			randomH=$(echo "scale=0; $[RANDOM%${ySize}]+${ySize}-${yError}"|bc)
 			echo "zoom_${randomX}_${randomY}_${randomZ}_${randomH}"
 			;;
 
