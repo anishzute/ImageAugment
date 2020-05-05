@@ -1,6 +1,8 @@
 # ImageAugment
 Image augmentation shell script for creating large randomized training sets for image classifiers
 
+requires: python, scikit-image, bash
+
 to use:
 
 download the ImageAugment file.
