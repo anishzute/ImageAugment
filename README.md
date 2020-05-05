@@ -9,7 +9,7 @@ download the ImageAugment file.
 
 2. `bash ImageAugment`
 
-3. enter the image directory when prompted. The folder hierachy will be preserved and each new image will be saved in the same image as the original it came from.
+3. enter the images directory when prompted. The folder hierachy will be preserved and each new image will be saved in the same image as the original it came from.
 
 4. enter the amount of copies per image desired.
 
