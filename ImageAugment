@@ -92,3 +92,6 @@ makeTransforms()
 for (( i = 0; i < $numCopies+1; i++ )); do
 	python main.py ${imageDir} $(makeTransforms)
 done
+
+cd ..
+rm -rf image_augmentor
