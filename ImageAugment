@@ -9,8 +9,18 @@ read xDim
 echo "Please enter the average y dimensions of the images (+-10%)"
 read yDim
 
+
+
+
+# an example checking if the pandas package is installed
+if python -c 'import pkgutil; exit(not pkgutil.find_loader("scikit-image"))'; then
+    echo 'Dependencies met. Continuing process.'
+else
+    echo 'Scikit-image not found. Installing scikit-image'
+    pip install scikit-image
+fi
+
 git clone https://github.com/codebox/image_augmentor.git
-pip install scikit-image
 cd image_augmentor
 
 getRandomTransform()
