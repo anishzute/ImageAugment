@@ -12,7 +12,7 @@ read yDim
 
 
 
-# an example checking if the pandas package is installed
+#checking if the scikit-image package is installed
 if python -c 'import pkgutil; exit(not pkgutil.find_loader("scikit-image"))'; then
     echo 'Dependencies met. Continuing process.'
 else
